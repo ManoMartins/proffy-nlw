@@ -9,9 +9,9 @@ export async function up(knex: Knex) {
       .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
-      // table.timestamp('created_at')
-      //   .defaultTo(knex('CURRENT-TIMESTAMP'))
-      //   .notNullable();
+      table.timestamp('created_at')
+        .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
+        .notNullable();
   });
 }
 
